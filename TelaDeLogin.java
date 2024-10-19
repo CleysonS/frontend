@@ -52,10 +52,10 @@ public class TelaDeLogin extends JFrame
             ResultSet rstSqlLogin = stmSqllogin.executeQuery(strSqlLogin);
             if(rstSqlLogin.next()) {
                //aqui vamos notificar o usuario que o login e senha foi encontrado
-               //lblNotificacoes.setText(("conectado com sucesso!"));
+               lblNotificacoes.setText(("conectado com sucesso!"));
 
             }else {
-               //lblNotificacoes.setText(("Login e/ou senha não encontrado! Por favor, verifique e tente novamente."));
+               lblNotificacoes.setText(("Login e/ou senha não encontrado! Por favor, verifique e tente novamente."));
             }
 
          }catch (Exception e){
@@ -66,6 +66,14 @@ public class TelaDeLogin extends JFrame
       }
 
      }
+
+     public String setHtmlFormat(String txt) {
+      return "<html><body>" + txt + "</body></html>";
+  }
+
+  public void notificarUsuario(String strTexto) {
+      lblNotificacoes.setText(setHtmlFormat(strTexto));
+  }
  public static void main(String[] args){
    
    TelaDeLogin appTelaDeLogin = new TelaDeLogin();
