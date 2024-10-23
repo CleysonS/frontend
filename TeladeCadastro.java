@@ -110,8 +110,25 @@ public TeladeCadastro()
 
         }
     }
+
+ 
     
     );
+
+    btnCancelar.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent event){
+            txtNome.setText("");
+            txtEmail.setText("");
+            txtSenha.setText("");
+            if (JOptionPane.showConfirmDialog(null,"Deseja Mesmo sair?") ==0) {
+                System.exit(0);                
+            } else{
+                txtNome.requestFocus();
+
+            }
+        }
+    });
 
     setSize(300,300);
     setVisible(true);
